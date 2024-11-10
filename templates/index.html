@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+</head>
+<body>
+<h1>URL Shortener</h1>
+
+{% if short_url %}
+    <p>Shortened URL: <a href="{{ url_for('redirect_to_url', short_url=short_url) }}" target="_blank">{{ request.host_url }}{{ short_url }}</a></p>
+{% endif %}
+
+<form action="/" method="POST">
+    <label for="url">URL to shorten:</label><br>
+    <input type="text" id="url" name="url" placeholder="https://www.google.com/" required><br>
+    <input type="submit" value="Shorten">
+</form>
+
+</body>
+</html>
