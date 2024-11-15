@@ -6,6 +6,10 @@
 <body>
 <h1>URL Shortener</h1>
 
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
 {% if short_url %}
     <p>Shortened URL: <a href="{{ url_for('redirect_to_url', short_url=short_url) }}" target="_blank">{{ request.host_url }}{{ short_url }}</a></p>
 {% endif %}
